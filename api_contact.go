@@ -23,6 +23,7 @@ type User struct {
 	Position   string
 	Email      string
 	Avatar     string
+	Jobnumber  string
 	Extattr    interface{}
 }
 
