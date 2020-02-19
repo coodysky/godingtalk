@@ -83,6 +83,15 @@ func (c *DingTalkClient) UserList(departmentID, offset, size int) (UserList, err
 	return data, err
 }
 
+// 获取用户详情
+func (c *DingTalkClient) UserDetail(userid string) (User, error) {
+	var data User
+	params := url.Values{}
+	params.Add("userid", userid)
+	err := c.httpRPC("user/get", params, nil, &data)
+	return data, err
+}
+
 //CreateChat is
 func (c *DingTalkClient) CreateChat(name string, owner string, useridlist []string) (string, error) {
 	var data struct {
